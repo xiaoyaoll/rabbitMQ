@@ -19,7 +19,7 @@ public class Demo {
     @Before
     public void getConnect() throws IOException, InterruptedException {
 
-        zooKeeper = new ZooKeeper(host, 2000, new Watcher() {
+        zooKeeper = new ZooKeeper(host, 3000, new Watcher() {
             public void process(WatchedEvent event) {
                 List<String> list = null;
                 try {
