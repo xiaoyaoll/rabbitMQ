@@ -26,8 +26,8 @@ public class Recv {
 
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                channel.basicAck(envelope.getDeliveryTag(),true);
                 System.out.println(new String(body));
+                channel.basicAck(envelope.getDeliveryTag(),true);
 
 
             }
@@ -35,8 +35,7 @@ public class Recv {
 
         channel.basicConsume(QUEUE_NAME,false,consumer);
 
-//        channel.close();
-//        connection.close();
+
 
     }
 
