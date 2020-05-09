@@ -21,14 +21,13 @@ public class Recv {
         channel.basicQos(1);
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
 
-
+        System.out.println("hello");
         DefaultConsumer consumer = new DefaultConsumer(channel) {
 
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                System.out.println(new String(body));
-                int i=1/0;
                 channel.basicAck(envelope.getDeliveryTag(),true);
+                System.out.println(new String(body));
 
 
             }
